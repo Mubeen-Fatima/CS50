@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New page
+{% endblock %}
+
+{% block body %}
+{% if message %}
+    <h2 class="text-danger">{{message}}</h2>
+{%endif%}    
+<h2 class="text-success">Ceate New Entry here</h2>
+    <form action="{% url 'newpage' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" class="form-control col-6" placeholder="Enter title for new entry"> </br>
+        <textarea name="content" class="form-control col-6" rows="4" cols="4" placeholder="Enter Content for new entry"></textarea> </br>
+        <input type="submit" class="btn btn-success col-6">
+    </form>
+{% endblock %}

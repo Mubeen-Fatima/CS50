@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+
+    
+        {% if entries %}
+        <ol class="col-3">
+            {% for entry in entries %}
+                <li class=""><a class="text-success list-group-item"href="/wiki/{{entry}}">{{ entry }}</a></li>
+            {% endfor %}
+        </ol>
+        {% else %}
+            <div> There is no entry for {{ value }}</div>
+        {% endif %}
+    
+
+{% endblock %}

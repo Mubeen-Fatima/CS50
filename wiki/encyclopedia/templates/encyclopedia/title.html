@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<br><br>
+<a name="edit" href="{% url 'edit' title%}"  class="btn btn-success col-2">Edit Content</a>
+<br><br>
+
+    {{ FileContent }}
+{% endblock %}
