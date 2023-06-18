@@ -23,7 +23,7 @@ class Listing(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listing_user")
 
     def __str__(self):
-        return self.title
+        return f'{self.title}, {self.description}, {self.category}, {self.starting_bid}, {self.date_created}'
 
 class Bid(models.Model):
     bid = models.BigAutoField(primary_key=True)

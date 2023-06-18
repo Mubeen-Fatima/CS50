@@ -65,10 +65,28 @@ def register(request):
         return render(request, "auctions/register.html")
 
 def new_listing(request):
-    if request.method() == "GET":
-        return render(request, "auctions/newlisting.html")
-    elif request.method == "POST":
-        return render(request, "auctions/index.html")
+    if request.method == "POST":
+        title = request.POST['title']
+        description = request.POST['description']
+        price = request.POST['price']
+        bid = request.POST['bid']
+        category = Category.objects.get(caid=request.POST['category'])
+        user = request.user
+        listing = Listing(
+            title = title,
+            description = description,
+            category=category,
+            user = user,
+            price = int(price),
+            starting_bid = bid,
+        )
+        listing.save()
+        return HttpResponseRedirect(reverse(index))
+    else:
+        categories = Category.objects.all()
+        return render(request, "auctions/newlisting.html",{
+            "categories": categories
+        })
 
 
 def listing(request, listing_id):
