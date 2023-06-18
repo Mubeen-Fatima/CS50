@@ -7,16 +7,23 @@ class User(AbstractUser):
 class Category(models.Model):
     caid = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.title
+    
 class Listing(models.Model):
     lid = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=64)
     price = models.IntegerField()
     description = models.CharField(max_length=256)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
-    starting_bid = models.IntegerField()
+    starting_bid = models.IntegerField(default=0)
     # image = models.ImageField( upload_to=None, height_field=None, width_field=None, max_length=None)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="Listing_category")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="Listing_category", blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listing_user")
+
+    def __str__(self):
+        return self.title
 
 class Bid(models.Model):
     bid = models.BigAutoField(primary_key=True)

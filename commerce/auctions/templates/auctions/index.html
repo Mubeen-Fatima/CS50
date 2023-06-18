@@ -2,6 +2,10 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-
-    TODO
+ {% if all_listing %}
+  {% for listings in all_listing%}
+    <p> Title: {{ listings.Title }}</p>
+    {% endfor %}
+    {{all_listing}}
+{% endif %}
 {% endblock %}
