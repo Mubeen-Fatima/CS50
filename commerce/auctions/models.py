@@ -17,8 +17,8 @@ class Listing(models.Model):
     price = models.IntegerField()
     description = models.CharField(max_length=256)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)
-    starting_bid = models.IntegerField(default=0)
-    # image = models.ImageField( upload_to=None, height_field=None, width_field=None, max_length=None)
+    starting_bid = models.IntegerField()
+    image = models.CharField(max_length=256, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="Listing_category", blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listing_user")
 

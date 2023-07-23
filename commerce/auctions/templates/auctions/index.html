@@ -2,10 +2,10 @@
 
 {% block body %}
     <h2>Active Listings</h2>
- {% if all_listing %}
-  {% for listings in all_listing%}
-    <p> Title: {{ listings.Title }}</p>
+ {% if listings %}
+  {% for listing in listings%}
+    <p> Title: {{ listing.Title }}</p>
     {% endfor %}
-    {{all_listing}}
+    {{listings}}
 {% endif %}
 {% endblock %}
