@@ -4,8 +4,16 @@
     <h2>Active Listings</h2>
  {% if listings %}
   {% for listing in listings%}
-    <p> Title: {{ listing.Title }}</p>
+    <div class="container p-2 border border-success">
+      <h1> Title: {{ listing.title }}</h1>
+      <p> Description: {{ listing.description }}</p>
+      <p> Biding date: {{ listing.date_created }}</p>
+      <p> Starting Bid: {{ listing.starting_bid }}</p>
+      <p> Category: {{ listing.category }}</p>
+      <p> User: {{ listing.user }}</p>
+    </div>  
+  <br>
     {% endfor %}
-    {{listings}}
+    {% comment %} {{listings}} {% endcomment %}
 {% endif %}
 {% endblock %}
