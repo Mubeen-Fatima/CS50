@@ -5,17 +5,22 @@
 {% block body %}
     <h2 class="text-center text-success"> Active Listings</h2>
  {% if listings %}
-  {% for listing in listings%}
-    <div class="container p-2 border border-success">
-      <h1> Title: {{ listing.title }}</h1>
-      <p> Description: {{ listing.description }}</p>
-      <p> Biding date: {{ listing.date_created }}</p>
-      <p> Starting Bid: {{ listing.starting_bid }}</p>
-      <p> Category: {{ listing.category }}</p>
-      <p> User: {{ listing.user }}</p>
-    </div>  
-  <br>
+ <div class="row container">
+    {% for listing in listings%}
+      <div class="card col-5 m-2" style="width: 28rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"> {{ listing.title }} </h5>
+          <p class="card-text"> Description: {{ listing.description }}</p>
+          <p class="card-text"> Biding date: {{ listing.date_created }}</p>
+          <p class="card-text"> Starting Bid: {{ listing.starting_bid }}</p>
+          <p class="card-text"> Category: {{ listing.category }}</p>
+          <p class="card-text"> User: {{ listing.user }}</p>
+          <a href="{% url 'listing' listing.lid %}" class="btn btn-success">See details</a>
+        </div>
+      </div>
+      <br>
     {% endfor %}
-    {% comment %} {{listings}} {% endcomment %}
+  </div>
 {% endif %}
 {% endblock %}

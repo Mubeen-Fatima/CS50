@@ -4,4 +4,17 @@
     <h2>Listing</h2>
 
     Listing Details
+
+    <div class="card col-5 m-2" style="width: 28rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"> {{ listing.title }} </h5>
+          <p class="card-text"> Description: {{ listing.description }}</p>
+          <p class="card-text"> Biding date: {{ listing.date_created }}</p>
+          <p class="card-text"> Starting Bid: {{ listing.starting_bid }}</p>
+          <p class="card-text"> Category: {{ listing.category }}</p>
+          <p class="card-text"> User: {{ listing.user }}</p>
+          <a href="{% url 'listing' listing.lid %}" class="btn btn-success">See details</a>
+        </div>
+      </div>
 {% endblock %}

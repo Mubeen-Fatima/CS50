@@ -90,7 +90,10 @@ def new_listing(request):
 
 
 def listing(request, listing_id):
-    pass
+    listing = Listing.objects.get(lid=listing_id)
+    return render(request, "auctions/listing.html",{
+            "listing": listing
+    })
 
 def categories(request):
     pass
